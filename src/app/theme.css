@@ -1,0 +1,107 @@
+/* Stovest theme layer: drop-in animation + LIGHT theme overrides (dark is the default look). */
+@keyframes drop {
+  0%   { opacity: 0; transform: translateY(-70px) scale(0.95); }
+  60%  { opacity: 1; transform: translateY(10px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-drop { animation: drop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+html.light { color-scheme: light; --background: #eef2f9; --foreground: #0b1220; }
+html.light body { background-color: #eef2f9; color: #0b1220; }
+html.light ::-webkit-scrollbar-track { background: rgba(203, 213, 225, 0.5); }
+html.light ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.7); }
+
+html.light .bg-\[\#0c101b\] { background-color: rgb(255,255,255); }
+html.light .border-\[\#172033\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#202c47\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#121828\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1c253d\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#131929\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1e2740\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#1a233a\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#141b2c\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#212c45\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#111624\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#151c2e\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1a2338\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#182136\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#161e30\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#101524\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1b233a\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#1b253d\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#1d273f\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#070b13\] { background-color: rgb(238,242,249); }
+html.light .border-\[\#131b2d\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#0e1320\] { background-color: rgb(255,255,255); }
+html.light .border-\[\#1e2840\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#1a233a\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#0b0f19\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1b253b\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#121827\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1c263c\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#182136\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#141c2e\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#101625\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1a243a\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#162035\] { background-color: rgb(233,239,250); }
+html.light .from-\[\#131d33\] { background-image: none; background-color: rgb(233,239,250); }
+html.light .to-\[\#0f1728\] { background-image: none; background-color: rgb(233,239,250); }
+html.light .border-\[\#212f4d\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#232f4e\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#141b2c\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#090d16\]\/70 { background-color: rgba(238,242,249,0.70); }
+html.light .border-\[\#1b243b\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#161c2e\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#141c30\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#0f1422\] { background-color: rgb(255,255,255); }
+html.light .bg-\[\#0d121f\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#111728\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#1c2438\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#192237\] { background-color: rgb(233,239,250); }
+html.light .border-\[\#232f4c\] { border-color: rgb(209,219,236); }
+html.light .ring-\[\#090d16\] { --tw-ring-color: #eef2f9; }
+html.light .from-\[\#121828\]\/60 { background-image: none; background-color: rgb(233,239,250); }
+html.light .bg-\[\#19223a\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#192238\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#141c2f\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#172033\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#090d16\] { background-color: rgb(238,242,249); }
+html.light .border-\[\#151c2d\] { border-color: rgb(209,219,236); }
+html.light .border-\[\#1b2338\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#101524\]\/95 { background-color: rgba(233,239,250,0.95); }
+html.light .bg-\[\#1b2a47\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#161f33\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#05070c\] { background-color: rgb(238,242,249); }
+html.light .border-\[\#141d30\] { border-color: rgb(209,219,236); }
+html.light .bg-\[\#070a12\] { background-color: rgb(233,239,250); }
+html.light .bg-\[\#0b101c\] { background-color: rgb(233,239,250); }
+
+/* Text */
+html.light .text-white { color: #0b1220; }
+html.light .text-gray-100 { color: #0f172a; }
+html.light .text-gray-200 { color: #1e293b; }
+html.light .text-gray-300 { color: #334155; }
+html.light .text-gray-400 { color: #475569; }
+html.light .text-gray-500 { color: #64748b; }
+html.light .placeholder-gray-500::placeholder { color: #94a3b8; }
+html.light .text-emerald-300 { color: #047857; }
+html.light .text-emerald-400 { color: #059669; }
+html.light .text-rose-300 { color: #be123c; }
+html.light .text-rose-400 { color: #e11d48; }
+html.light .text-blue-300 { color: #1d4ed8; }
+html.light .text-blue-400 { color: #2563eb; }
+html.light .text-amber-400 { color: #b45309; }
+html.light .text-yellow-400 { color: #a16207; }
+
+/* Tinted status chips */
+html.light [class*="bg-emerald-950"] { background-color: #d1fae5; }
+html.light [class*="bg-rose-950"] { background-color: #ffe4e6; }
+html.light [class*="bg-blue-950"] { background-color: #dbeafe; }
+html.light .bg-gray-900 { background-color: #e2e8f0; }
+
+/* Buttons/pills with a solid colored background keep white text */
+html.light :is(.bg-blue-600, .bg-blue-500, .bg-\[\#1868fe\], .bg-purple-600, .bg-pink-500, .bg-emerald-600, .bg-rose-600).text-white,
+html.light :is(.bg-blue-600, .bg-blue-500, .bg-\[\#1868fe\], .bg-purple-600, .bg-pink-500, .bg-emerald-600, .bg-rose-600) .text-white { color: #ffffff; }
+
+/* Overlay shadows are too heavy on a light page */
+html.light .shadow-2xl { --tw-shadow-color: rgba(15, 23, 42, 0.18); }
