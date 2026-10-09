@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Globe,
   DollarSign,
+  Menu,
 } from "lucide-react";
 import { CurrencyCode } from "../types";
 import { CURRENCY_RATES } from "../data/mockData";
@@ -20,6 +21,7 @@ interface HeaderProps {
   activeTopPill: string;
   setActiveTopPillAction: (pill: string) => void;
   onOpenSettingsAction?: () => void;
+  onOpenMenuAction?: () => void;
 }
 
 export default function Header({
@@ -29,6 +31,7 @@ export default function Header({
   activeTopPill,
   setActiveTopPillAction,
   onOpenSettingsAction,
+  onOpenMenuAction,
 }: HeaderProps) {
   const [currencyMenuOpen, setCurrencyMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
@@ -44,7 +47,12 @@ export default function Header({
   const topPills = ["Market", "Wallets", "Tools"];
 
   return (
-    <header className="h-20 border-b border-[#141b2c] px-7 flex items-center justify-between gap-5 bg-[#090d16]/70 backdrop-blur-md sticky top-0 z-30">
+    <header className="h-16 sm:h-20 border-b border-[#141b2c] px-3 sm:px-7 flex items-center justify-between gap-2 sm:gap-5 bg-[#090d16]/70 backdrop-blur-md sticky top-0 z-30">
+      {onOpenMenuAction && (
+        <button onClick={onOpenMenuAction} aria-label="Open menu" className="lg:hidden shrink-0 p-2.5 rounded-full bg-[#101524] border border-[#1b243b] text-gray-300 hover:text-white">
+          <Menu className="w-4 h-4" />
+        </button>
+      )}
       {/* Left Action Pills & Currency Switcher */}
       <div className="flex items-center gap-2.5">
         {topPills.map((pill) => {
@@ -53,7 +61,7 @@ export default function Header({
             <button
               key={pill}
               onClick={() => setActiveTopPillAction(pill)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`hidden md:inline-flex px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
                 isActive
                   ? "bg-[#162035] text-white border border-blue-500/40 shadow-sm shadow-blue-500/20"
                   : "bg-[#101524] text-gray-400 border border-[#1b243b] hover:text-white hover:bg-[#161c2e]"
@@ -99,7 +107,7 @@ export default function Header({
       </div>
 
       {/* Center: AI Search Bar matching "Ask stocks.ai anything" */}
-      <div className="flex-1 max-w-lg relative">
+      <div className="flex-1 min-w-0 max-w-lg relative">
         <div
           onClick={() => onOpenAiSearchAction(searchInput)}
           className="group relative flex items-center bg-[#0d121f] hover:bg-[#111728] border border-[#1c2438] hover:border-blue-500/50 rounded-full px-4 py-2.5 transition-all cursor-pointer shadow-inner shadow-black/40"
@@ -122,7 +130,7 @@ export default function Header({
       {/* Right User Controls */}
       <div className="flex items-center gap-3">
         {/* Notification Bell */}
-        <div className="relative">
+        <div className="relative hidden sm:block">
           <button
             onClick={() => { setBellOpen(!bellOpen); setUnread(false); }}
             className="relative p-2.5 rounded-full bg-[#101524] border border-[#1b243b] text-gray-400 hover:text-white hover:bg-[#161c2e] transition-colors"

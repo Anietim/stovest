@@ -47,6 +47,7 @@ export default function DashboardPage() {
   const [isLiveConnected, setIsLiveConnected] = useState(false);
   const [loadingRealData, setLoadingRealData] = useState(false);
   const [liveCount, setLiveCount] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [lastSynced, setLastSynced] = useState<string>("");
 
   // Fetch real live quotes and FX rates from our Next.js /api/stocks endpoint
@@ -140,6 +141,7 @@ export default function DashboardPage() {
         setAiInitialQuery("");
         setAiModalOpen(true);
       } else if (e.key === "Escape") {
+        setMenuOpen(false);
         setAiModalOpen(false);
         setSettingsOpen(false);
         setSelectedStock(null);
@@ -217,11 +219,15 @@ export default function DashboardPage() {
       {/* Outer Dashboard Frame matching reference mockup */}
       <div className="flex-1 flex overflow-hidden rounded-3xl dashboard-frame bg-[#090d16] border border-[#141d30]">
         {/* Left Navigation Sidebar */}
+        {/* Sidebar: slide-out menu on phones/tablets, fixed column on desktop */}
+        {menuOpen && <div className="fixed inset-0 z-40 bg-black/60 lg:hidden" onClick={() => setMenuOpen(false)} />}
+        <div className={`fixed inset-y-0 left-0 z-50 flex overflow-y-auto transition-transform duration-300 lg:static lg:z-auto lg:translate-x-0 lg:overflow-visible ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <Sidebar
           activeTab={activeTab}
-          setActiveTab={handleSidebarTabChange}
+          setActiveTab={(t: any) => { handleSidebarTabChange(t); setMenuOpen(false); }}
           userName={welcomeName}
         />
+        </div>
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#070a12]">
@@ -230,6 +236,7 @@ export default function DashboardPage() {
 
           {/* Top Bar Header */}
           <Header
+            onOpenMenuAction={() => setMenuOpen(true)}
             onOpenAiSearchAction={handleOpenAiSearch}
             currency={currency}
             setCurrencyAction={setCurrency}
@@ -239,7 +246,7 @@ export default function DashboardPage() {
           />
 
           {/* Live Data Connection Banner (reflects real connection state) */}
-          <div className="bg-[#0b101c] border-b border-[#141d30] px-7 py-1.5 flex items-center justify-between text-[11px]">
+          <div className="bg-[#0b101c] border-b border-[#141d30] px-3 sm:px-7 py-1.5 flex items-center justify-between text-[11px]">
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 relative">
                 {isLiveConnected && (
